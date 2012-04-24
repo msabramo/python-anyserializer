@@ -1,6 +1,9 @@
-import anyserializer
 import pickle
+import sys
+
 import pytest
+
+import anyserializer
 
 
 a_dict = {'a': 1, 'b': 2, 'c': {'d': 3, 'e': 4}}
@@ -34,6 +37,9 @@ expected_plist = """
 </dict>
 </plist>
 """
+
+if sys.version_info[0] >= 3:
+    expected_plist = expected_plist.encode('utf-8')
 
 expected_biplist = 'bplist00bybiplist1.0\x00\xd3\x01\x02\x03\x04\x05\x06QaQcQb\x10\x01\xd2\x07\x08\t\nQeQd\x10\x04\x10\x03\x10\x02\x15\x1c\x1e "$1)+-/\x00\x00\x00\x00\x00\x00\x01\x01\x00\x00\x00\x00\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x003'
 
