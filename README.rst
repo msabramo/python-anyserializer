@@ -10,9 +10,9 @@ annoyingly different interfaces.
 
 For example:
 
-- json and pickle - use "dumps"
-- yaml (PyYAML) - uses "dump"
-- plistlib and biplist - use "writePlistToString"
+- json_ and pickle_ - use ``dumps``
+- yaml (PyYAML_) - uses ``dump``
+- plistlib_ and biplist_ - use ``writePlistToString``
 - etc.
 
 This makes it a bit annoying when you're writing software and want to be able
@@ -41,3 +41,9 @@ Things shouldn't be this way.
     >>> anyserializer.serialize('biplist', {'a': 1, 'b': 2, 'c': {'d': 3, 'e': 4}})
     'bplist00bybiplist1.0\x00\xd3\x01\x02\x03\x04\x05\x06QaQcQb\x10\x01\xd2\x07\x08\t\nQeQd\x10\x04\x10\x03\x10\x02\x15\x1c\x1e "$1)+-/\x00\x00\x00\x00\x00\x00\x01\x01\x00\x00\x00\x00\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x003'
 
+
+.. _PyYAML: http://pyyaml.org/
+.. _pickle: http://docs.python.org/library/pickle.html
+.. _json: http://docs.python.org/library/json.html
+.. _plistlib: http://docs.python.org/library/plistlib.html
+.. _biplist: http://pypi.python.org/pypi/biplist/
