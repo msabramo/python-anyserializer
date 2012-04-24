@@ -30,7 +30,7 @@ setup(name='anyserializer',
       version=version,
       description=desc,
       long_description=long_desc,
-      data_files=[('', ['README.markdown'])],
+      data_files=[('', ['README.rst'])],
       classifiers=[
             'License :: OSI Approved :: BSD License',
             'Intended Audience :: Developers',
