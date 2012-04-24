@@ -5,15 +5,26 @@ if sys.version_info >= (3, 0):
     extra.update(use_2to3=True)
 
 try:
-    from setuptools import setup, find_packages
+    from setuptools import setup, find_packages, Command
 except ImportError:
-    from distutils.core import setup, find_packages
+    from distutils.core import setup, find_packages, Command
 
 author = "Marc Abramowitz"
 email = "marc@marc-abramowitz.com"
 version = "0.0.1-dev"
 desc = """Provides a common interface to various serialization methods"""
 long_desc = open('README.markdown').read()
+
+class PyTest(Command):
+    user_options = []
+    def initialize_options(self):
+        pass
+    def finalize_options(self):
+        pass
+    def run(self):
+        import sys,subprocess
+        errno = subprocess.call([sys.executable, 'runtests.py'])
+        raise SystemExit(errno)
 
 setup(name='anyserializer',
       version=version,
@@ -40,6 +51,7 @@ setup(name='anyserializer',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       zip_safe=False,
       platforms=["any"],
+      cmdclass={'test': PyTest},
       # test_suite = 'nose.collector',
       **extra
 )
