@@ -5,6 +5,8 @@ from .serializers import *
 serializer_factory = SerializerFactory({
     'json': JsonSerializer,
     'yaml': YamlSerializer,
+    'plist': PlistSerializer,
+    'biplist': BiplistSerializer,
     'pprint': PprintSerializer,
     'phpserialize': PhpSerializer,
     'pickle': PickleSerializer,
