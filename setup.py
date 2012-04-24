@@ -13,7 +13,7 @@ author = "Marc Abramowitz"
 email = "marc@marc-abramowitz.com"
 version = "0.0.1-dev"
 desc = """Provides a common interface to various serialization methods"""
-long_desc = open('README.markdown').read()
+long_desc = open('README.rst').read()
 
 class PyTest(Command):
     user_options = []
