@@ -43,6 +43,8 @@ if sys.version_info[0] >= 3:
 
 expected_biplist = 'bplist00bybiplist1.0\x00\xd3\x01\x02\x03\x04\x05\x06QaQcQb\x10\x01\xd2\x07\x08\t\nQeQd\x10\x04\x10\x03\x10\x02\x15\x1c\x1e "$1)+-/\x00\x00\x00\x00\x00\x00\x01\x01\x00\x00\x00\x00\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x003'
 
+expected_bson = ')\x00\x00\x00\x10a\x00\x01\x00\x00\x00\x03c\x00\x13\x00\x00\x00\x10e\x00\x04\x00\x00\x00\x10d\x00\x03\x00\x00\x00\x00\x10b\x00\x02\x00\x00\x00\x00'
+
 
 def test_serialize_to_json():
     output = anyserializer.serialize('json', a_dict)
@@ -66,6 +68,7 @@ def test_serialize_to_pickle():
 
 
 def test_serialize_to_phpserialize():
+    pytest.importorskip("phpserialize")
     output = anyserializer.serialize('phpserialize', a_dict)
     assert output.strip() == expected_phpserialize.strip()
 
@@ -75,9 +78,17 @@ def test_serialize_to_plist():
     assert expected_plist.strip() in output.strip()
 
 
-# def test_serialize_to_biplist():
-#     output = anyserializer.serialize('biplist', a_dict)
-#     assert output.strip() == expected_biplist.strip()
+def test_serialize_to_biplist():
+    pytest.importorskip("biplist")
+    output = anyserializer.serialize('biplist', a_dict)
+    assert output.strip() == expected_biplist.strip()
+
+
+@pytest.mark.skipif("sys.version_info >= (3,0)")
+def test_serialize_to_bson():
+    pytest.importorskip("bson")
+    output = anyserializer.serialize('bson', a_dict)
+    assert expected_bson.strip() == output.strip()
 
 
 def test_serialize_to_unknown_format():

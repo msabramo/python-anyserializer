@@ -7,6 +7,7 @@ serializer_factory = SerializerFactory({
     'yaml': YamlSerializer,
     'plist': PlistSerializer,
     'biplist': BiplistSerializer,
+    'bson': BsonSerializer,
     'pprint': PprintSerializer,
     'phpserialize': PhpSerializer,
     'pickle': PickleSerializer,

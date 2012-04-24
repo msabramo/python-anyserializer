@@ -52,7 +52,7 @@ setup(name='anyserializer',
       zip_safe=False,
       platforms=["any"],
       cmdclass={'test': PyTest},
-      tests_require=['PyYAML', 'phpserialize'],
+      tests_require=['PyYAML', 'phpserialize', 'bson'],
       # test_suite = 'nose.collector',
       **extra
 )
