@@ -1,2 +1,3 @@
 PyYAML
 -e git+git://github.com/msabramo/phpserialize.git@python3.x#egg=phpserialize
+biplist
