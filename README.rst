@@ -2,6 +2,7 @@ python-anyserializer
 =========================
 
 .. image:: https://secure.travis-ci.org/msabramo/python-anyserializer.png?branch=master
+   :target: http://travis-ci.org/msabramo/python-anyserializer
 
 A uniform interface to a bunch of different ways to serialize data in Python.
 
