@@ -84,6 +84,25 @@ def test_serialize_to_biplist():
     assert output.strip() == expected_biplist.strip()
 
 
+def test_serialize_to_texttable():
+    expected_texttable = """
+thing   color  
+==============
+leaf    green  
+sky     blue   
+sun     yellow
+"""
+
+    pytest.importorskip("texttable")
+    output = anyserializer.serialize(
+        'texttable',
+        {'sky': 'blue',
+         'leaf': 'green',
+         'sun': 'yellow'},
+        header_fields=['thing', 'color'])
+    assert output.strip() == expected_texttable.strip()
+
+
 @pytest.mark.skipif("sys.version_info >= (3,0)")
 def test_serialize_to_bson():
     pytest.importorskip("bson")

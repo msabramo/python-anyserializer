@@ -2,6 +2,7 @@ from .jsonserializer import JsonSerializer
 from .yamlserializer import YamlSerializer
 from .plistserializer import PlistSerializer
 from .biplistserializer import BiplistSerializer
+from .texttableserializer import TextTableSerializer
 from .bsonserializer import BsonSerializer
 from .pprintserializer import PprintSerializer
 from .phpserializer import PhpSerializer
